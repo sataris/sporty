@@ -16,6 +16,7 @@ class CreateMatchTeamPivotTable extends Migration
             $table->integer('match_id')->unsigned()->index();
             $table->foreign('match_id')->references('id')->on('matches')->onDelete('cascade');
             $table->integer('team_id')->unsigned()->index();
+            $table->boolean('is_home');
             $table->boolean('is_winner');
             $table->integer('super_goals');
             $table->integer('goals');
@@ -23,6 +24,7 @@ class CreateMatchTeamPivotTable extends Migration
             $table->integer('points');
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->primary(['match_id', 'team_id']);
+            $table->softDeletes();
         });
     }
 

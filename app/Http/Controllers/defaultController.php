@@ -28,6 +28,16 @@ class defaultController extends Controller
 
     }
 
+    public function calculate(Request $request)
+    {
+        $league = League::findorFail(1);
+        foreach ($league->seasons as $season) {
+            foreach ($season->matches as $match) {
+                $match->calculateScores();
+            }
+        }
+    }
+
     public function create(Request $request)
     {
         $name = $request->input('name');

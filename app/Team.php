@@ -34,6 +34,13 @@ class Team extends Model
         return $this->hasOne('App\Sport');
     }
 
+    public function competitors()
+    {
+        return $this->hasMany('App\Team');
+    }
+
+
+
     public function getJson()
     {
 

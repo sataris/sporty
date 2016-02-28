@@ -18,6 +18,8 @@ class CreateMatchesTable extends Migration
             $table->timestamp('match_start');
             $table->boolean('is_final');
             $table->boolean('is_grand_final');
+            $table->integer('ground_id');
+            $table->integer('season_id');
             $table->softDeletes();
             $table->timestamps();
         });

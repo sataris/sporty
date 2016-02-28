@@ -28,4 +28,5 @@ Route::group(['middleware' => ['web']], function () {
     //
     Route::resource('/', 'defaultController');
     Route::get('getJson', 'defaultController@getJson');
+    Route::get('calculate', 'defaultController@calculate');
 });
